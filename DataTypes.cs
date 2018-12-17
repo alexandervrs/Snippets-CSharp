@@ -5,7 +5,7 @@
  */
 
 /* using */
-using System; // for Console, Array
+using System; // for Console, Array, CompareTo
 using System.Collections.Generic; // for List, Dictionary, KeyValuePair
 
 
@@ -135,10 +135,17 @@ if (testValue == (int) TestCollection.Test1) {
 // create a string
 string mytext = "Test";
 
-
 // check if string equals a value into a boolean
 string mytext = "1";
 bool isTrue = mytext.Equals("1");
+
+// parse a string into a number so you can use it in calculations
+float myNumberFloat = float.Parse("13.75");
+int myNumberInt = int.Parse("13");
+
+// convert a number into a string, so you can use it in string operations
+float myNumberFloat = 33.45; // float, int etc. ...
+string mytext = myNumberFloat.ToString(); // mytext now has "33.45" as text
 
 
 /* -----------------------------------------
@@ -166,6 +173,12 @@ mylist.Clear();
 
 // invert the list items
 mylist.Reverse();
+
+// sort a list ascending
+mylist.Sort((a, b) => a.CompareTo(b));
+
+// sort a list descending
+mylist.Sort((a, b) => -1* a.CompareTo(b));
 
 // iterate through a list
 foreach (int listItem in mylist) {
