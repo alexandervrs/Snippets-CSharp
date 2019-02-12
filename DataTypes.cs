@@ -129,6 +129,22 @@ if (testValue == (int) TestCollection.Test1) {
 }
 
 
+// create an "enum" that holds string values using a static class
+static class TestCollection2
+{
+    public const string Test1 = "One";
+	public const string Test2 = "Two";
+	public const string Test3 = "Three";
+}
+
+// get value from "enum"
+if (testValue == TestCollection2.Test1) {
+
+	// testValue is equal to enum TestCollection2.Test1 ...
+
+}
+
+
 /* -----------------------------------------
    Strings
 ----------------------------------------- */

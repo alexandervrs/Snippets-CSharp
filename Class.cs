@@ -100,3 +100,55 @@ List<int> mylist = new List<int>(){ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 mylist.Shuffle();
 mylist.Print();
 
+
+/* -----------------------------------------
+   Fluent interface, Method Chaining
+----------------------------------------- */
+
+/* Step 1: create a class for the object contents */
+public class MyClassObjectContents
+{
+    public string name;
+    public string description;
+	// ...
+}
+
+
+/* Step 2: create a class for the chaining methods */
+public class MyClass {
+
+    MyClassObjectContents item = new MyClassObjectContents();
+
+	// this method can chain, sets the value for the name
+    public MyClass SetName(string name)
+    {
+        item.name = name;
+
+        return this; // required, return this object for chaining
+    }
+
+	// this method can chain, sets the value for the description
+    public MyClass SetDescription(string desc)
+    {
+        item.description = desc;
+
+        return this; // required, return this object for chaining
+    }
+
+	// this method does not chain but returns an item value (name)
+    public string GetName()
+    {
+        return item.name;
+    }
+
+	// this method does not chain but returns an item value (description)
+    public string GetDescription()
+    {
+        return item.description;
+    }
+
+}
+
+/* Step 3: use the new methods */
+MyClass myClass = new MyClass();
+myClass.SetName("somename").SetDescription("somedesc"); // chain the methods together
