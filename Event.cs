@@ -1,11 +1,58 @@
 
 /**
- * Callback.cs
- * Callback related snippets for C#
+ * Event.cs
+ * Event & Callback related snippets for C#
  */
 
 /* using */
-using System; // for Action, Console
+using System; // for EventHandler, EventArgs, Action, Console
+
+
+/* -----------------------------------------
+   Register and Execute an Event
+----------------------------------------- */
+/// Class A:
+
+// define the method to execute when OnSomeEvent event is fired
+void ExecuteMe(object sender, EventArgs e)
+{
+	Debug.Log("OnSomeEvent fired!");
+}
+
+// create a new object from Class B: MyEventClass
+MyEventClass myEventClass = new MyEventClass();
+
+// register event, when MyEventClass fires OnThree event, then execute the action
+// note: you can unregister event anytime like: myEventClass.OnSomeEvent -= ExecuteMe;
+myEventClass.OnSomeEvent += ExecuteMe;
+
+// execute the class method to return a random number
+myEventClass.ExecuteScript();
+
+
+/// Class B:
+public class MyEventClass {
+
+    // declare an Event Handler
+    public event System.EventHandler OnSomeEvent;
+	// ...
+    
+    public int ExecuteScript()
+    {
+        // generate a random int between 0 and 1 for testing
+        System.Random rnd = new System.Random();
+        int randomNum  = rnd.Next(0, 2);
+
+        // if random number is 1, fire event: OnSomeEvent
+        if (randomNum > 0) {
+            OnSomeEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        return randomNum;
+        
+    }
+
+}
 
 
 /* -----------------------------------------

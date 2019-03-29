@@ -114,14 +114,14 @@ Console.WriteLine(myarray2d.GetLength(1)+" x "+myarray2d.GetLength(0));
 /* -----------------------------------------
    Enumerators
 ----------------------------------------- */
-// create an enum
+/* create an enum */
 enum TestCollection : int {
 	Test1 = 1,
 	Test2 = 2,
 	Test3 = 3,
 }
 
-// get value from enum
+// get value from enum (as int)
 if (testValue == (int) TestCollection.Test1) {
 
 	// testValue is equal to enum TestCollection.Test1 ...
@@ -129,7 +129,8 @@ if (testValue == (int) TestCollection.Test1) {
 }
 
 
-// create an "enum" that holds string values using a static class
+/* create an "enum" that holds string values using a static class */
+// note: static classes cannot be used in certain cases though
 static class TestCollection2
 {
     public const string Test1 = "One";
@@ -137,12 +138,33 @@ static class TestCollection2
 	public const string Test3 = "Three";
 }
 
-// get value from "enum"
+// get string value from "enum"
 if (testValue == TestCollection2.Test1) {
 
 	// testValue is equal to enum TestCollection2.Test1 ...
 
 }
+
+/* create an "enum" that holds string values via mapping the values in a Dictionary */
+public enum TestCollection2 {
+	Test1,
+	Test2,
+	Test3
+}
+
+public Dictionary<TestCollection2, string> TestCollection2Names = new Dictionary<TestCollection2, string>()
+{
+	{ TestCollection2.Test1, "One" },
+	{ TestCollection2.Test2, "Two" },
+	{ TestCollection2.Test3, "Three"}
+};
+
+
+// get string value from "enum" of TestCollection2.Test1 -> "One"
+string testValue = TestCollection2Names[TestCollection2.Test1];
+
+// get int value from "enum" of TestCollection2.Test1 like a regular enum
+int testValue = (int)TestCollection2.Test1;
 
 
 /* -----------------------------------------
