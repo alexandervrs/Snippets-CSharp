@@ -7,6 +7,7 @@
 /* using */
 using System; // for Environment
 using System.Windows.Forms; // (Windows-Only) for Application
+using System.Threading; // for Thread
 
 
 /* -----------------------------------------
@@ -20,6 +21,21 @@ if (System.Windows.Forms.Application.MessageLoop) {
     // Close Console App
     Environment.Exit(1);
 }
+
+
+/* -----------------------------------------
+   Crash Application
+----------------------------------------- */
+
+// crash the application with an unhandled exception
+throw new Exception();
+
+
+/* -----------------------------------------
+   Freeze Application
+----------------------------------------- */
+// freeze the main application thread for 2 seconds
+Thread.Sleep(2000);
 
 
 /* -----------------------------------------
