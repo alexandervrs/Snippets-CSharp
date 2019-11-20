@@ -1,6 +1,6 @@
 
 /**
- * Plugin.cs
+ * DLL.cs
  * External API, Library related snippets for C#
  */
 
