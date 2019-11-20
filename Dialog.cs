@@ -6,7 +6,8 @@
 
 /* using */
 using System; // for Environment, Console
-using System.Windows.Forms; // (Windows-Only) for MessageBox, MessageBoxButtons, MessageBoxIcon, NotifyIcon, DialogResult, SaveFileDialog, OpenFileDialog
+using System.Windows.Forms; // (Windows-Only) for MessageBox, MessageBoxButtons, MessageBoxIcon, NotifyIcon, ToolTipIcon, DialogResult, SaveFileDialog, OpenFileDialog
+using System.Drawing; // (Windows-Only) for SystemIcons
 using System.IO; // for StreamReader, File
 
 /* -----------------------------------------
@@ -42,8 +43,8 @@ if (dialogResult == DialogResult.Yes) {
 NotifyIcon notification = new NotifyIcon()
 {
     Visible = true,
-    Icon = System.Drawing.SystemIcons.Information,
-    BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info,
+    Icon = SystemIcons.Information,
+    BalloonTipIcon = ToolTipIcon.Info,
     BalloonTipTitle = "My Title",
     BalloonTipText = "My description",
 };
