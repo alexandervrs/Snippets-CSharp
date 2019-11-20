@@ -239,6 +239,13 @@ namespace MyForms
 
 
 /* -----------------------------------------
+   Get CommandLine Parameters
+----------------------------------------- */
+
+string[] Parameters = Environment.GetCommandLineArgs();
+
+
+/* -----------------------------------------
    Quit Application
 ----------------------------------------- */
 // exit application (window or console)
