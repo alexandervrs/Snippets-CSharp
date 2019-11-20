@@ -6,7 +6,7 @@
 
 /* using */
 using System; // for Environment, Console
-using System.Windows.Forms; // (Windows-Only) for MessageBox, MessageBoxButtons, MessageBoxIcon, DialogResult, SaveFileDialog, OpenFileDialog
+using System.Windows.Forms; // (Windows-Only) for MessageBox, MessageBoxButtons, MessageBoxIcon, NotifyIcon, DialogResult, SaveFileDialog, OpenFileDialog
 using System.IO; // for StreamReader, File
 
 /* -----------------------------------------
@@ -33,6 +33,26 @@ if (dialogResult == DialogResult.Yes) {
 } else {
 	/// No was chosen ...
 }
+
+
+/* -----------------------------------------
+   Show Desktop Notification
+----------------------------------------- */
+
+NotifyIcon notification = new NotifyIcon()
+{
+    Visible = true,
+    Icon = System.Drawing.SystemIcons.Information,
+    BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info,
+    BalloonTipTitle = "My Title",
+    BalloonTipText = "My description",
+};
+
+// show notification for 2 seconds
+notification.ShowBalloonTip(2000);
+
+// remove notification
+notification.Dispose();
 
 
 /* -----------------------------------------
