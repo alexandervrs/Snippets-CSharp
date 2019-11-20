@@ -88,7 +88,7 @@ public delegate void CustomCallback();
 // create the function that executes the passed method with callback
 public void ExecuteScript(CustomCallback callThis = null) {
 
-    callThis?.Invoke(); // execute passed delegate: ExecuteMe("message", 3)
+    callThis?.Invoke(); // execute passed delegate: ExecuteMe("message", 3), ? invokes callThis only if not null
 
 }
 
