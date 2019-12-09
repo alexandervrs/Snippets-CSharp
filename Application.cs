@@ -71,7 +71,7 @@ namespace MyForms
 
 			// set the Form details
 			this.Text = "My Title";
-			this.Icon = System.Drawing.SystemIcons.Information;
+			this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 			
 			// set the Form buttons
 			this.MinimizeBox = true;
