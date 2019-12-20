@@ -44,6 +44,8 @@ form1.ShowInTaskbar = true;
 
 form1.AllowDrop = false; // set to "true" to allow File Drops
 
+form1.DoubleBuffered = false; // set to "true" to reduce any rendering flickering
+
 form1.Cursor = Cursors.Default; // OR other cursors e.g. Arrow, WaitCursor, Cross, No etc.
 
 form1.Visible = true;
