@@ -138,6 +138,9 @@ if ((attr & FileAttributes.Directory) == FileAttributes.Directory) {
    Retrieve System folders
 ----------------------------------------- */
 
+// get the program's directory
+string programDirectory = AppDomain.CurrentDomain.BaseDirectory+Path.DirectorySeparatorChar;
+
 // get the current working directory
 string cwd = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
