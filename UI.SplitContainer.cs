@@ -4,7 +4,7 @@
  * SplitContainer related snippets for C#
  */
 
-using System.Windows.Forms; // (Windows-Only) for Control, Form, SplitContainer, Orientation
+using System.Windows.Forms; // (Windows-Only) for Control, Form, SplitContainer, Orientation, SplitterEventHandler, SplitterEventArgs
 
 
 /* -----------------------------------------
@@ -20,7 +20,7 @@ splitcontainer1.Size          = new Size(200, 140);
 splitcontainer1.Dock          = DockStyle.Fill;
 splitcontainer1.BorderStyle   = BorderStyle.FixedSingle;
 splitcontainer1.SplitterWidth = 5; // width of Splitter grip
-splitContainer2.Orientation   = Orientation.Horizontal; // Horizontal or Vertical
+splitcontainer1.Orientation   = Orientation.Horizontal; // Horizontal or Vertical
 
 splitcontainer1.Panel1Collapsed = false; // set panel1 to visible
 splitcontainer1.Panel2Collapsed = false; // set panel2 to visible
