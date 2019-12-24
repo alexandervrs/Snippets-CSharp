@@ -5,8 +5,8 @@
  */
 
 /* using */
-using System;            // for Environment & FileAttributes, Console
-using System.IO;         // for File, FileInfo, FileMode, Folder, Path, StreamWriter, StreamReader, BinaryWriter, BinaryReader
+using System;            // for Environment, FileAttributes, Console
+using System.IO;         // for File, FileInfo, FileMode, Folder, Path, StreamWriter, StreamReader, BinaryWriter, BinaryReader, SearchOption
 using System.Reflection; // for Assembly
 
 
@@ -97,7 +97,7 @@ string fnameNoExt = Path.GetFileNameWithoutExtension("C:\\test.txt");
 // get file's extension
 string ext = Path.GetExtension("C:\\test.txt");
 
-// get file's size as bytes (Int64)
+// get file's size as bytes (Int64 / long)
 long length = new FileInfo("C:\\test.txt").Length;
 
 
@@ -115,7 +115,64 @@ Directory.CreateDirectory("C:\\test\\");
 Directory.Move("C:\\test\\", "C:\\newTest\\");
 
 // delete directory
-Directory.Delete("C:\\test\\", true); // "true" forces deletion of non-empty folder
+Directory.Delete("C:\\test\\", true); // "true" forces deletion of non-empty folder, use with caution
+
+// get all files in a directory, based on the location of a source file
+string[] filePaths = Directory.GetFiles(Path.GetDirectoryName("C:\\test.txt"));
+
+// get all files in a directory, based on the location of a source file, with specified extension (e.g. png)
+string[] filePaths = Directory.GetFiles(Path.GetDirectoryName("C:\\test.txt", "*.png"));
+
+// get all files in a directory, based on the location of a source file, also look in all subdirectories
+string[] filePaths = Directory.GetFiles(Path.GetDirectoryName("C:\\test.txt", "*.*", SearchOption.AllDirectories));
+
+// get next file from current source file
+string sourceFilePath = "C:\\test.txt";
+
+int currentIndex = 0;
+
+string[] filePaths = Directory.GetFiles(Path.GetDirectoryName(sourceFilePath));
+
+int i = 0;
+foreach (string thisFile in filePaths) {
+
+    if (thisFile == sourceFilePath) {
+        currentIndex = i;
+    }
+
+    i++;
+
+}
+
+if (currentIndex+1 > filePaths.Length-1) {
+    Console.WriteLine(sourceFilePath);
+} else {
+    Console.WriteLine(filePaths[currentIndex+1]);
+}
+
+// get previous file from current source file
+string sourceFilePath = "C:\\test.txt";
+
+int currentIndex = 0;
+
+string[] filePaths = Directory.GetFiles(Path.GetDirectoryName(sourceFilePath));
+
+int i = 0;
+foreach (string thisFile in filePaths) {
+
+    if (thisFile == sourceFilePath) {
+        currentIndex = i;
+    }
+
+    i++;
+
+}
+
+if (currentIndex-1 < 0) {
+    Console.WriteLine(sourceFilePath);
+} else {
+    Console.WriteLine(filePaths[currentIndex-1]);
+}
 
 
 /* -----------------------------------------
