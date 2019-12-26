@@ -5,9 +5,10 @@
  */
 
 /* using */
-using System;            // for Environment, FileAttributes, Console
-using System.IO;         // for File, FileInfo, FileMode, Folder, Path, StreamWriter, StreamReader, BinaryWriter, BinaryReader, SearchOption
-using System.Reflection; // for Assembly
+using System;                       // for Environment, FileAttributes, Console
+using System.IO;                    // for File, FileInfo, FileMode, Folder, Path, StreamWriter, StreamReader, BinaryWriter, BinaryReader, SearchOption
+using System.Reflection;            // for Assembly
+using Microsoft.VisualBasic.FileIO; // Only for FileSystem.DeleteFile, UIOption, RecycleOption
 
 
 /* -----------------------------------------
@@ -74,6 +75,9 @@ File.Copy("C:\\test.txt", "C:\\newTest.txt");
 
 // delete
 File.Delete("C:\\test.txt");
+
+// recycle file (Windows only)
+FileSystem.DeleteFile("C:\\test.txt", UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
 
 
 /* -----------------------------------------
