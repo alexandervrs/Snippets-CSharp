@@ -5,7 +5,7 @@
  */
 
 /* using */
-using System; // for Console, Array, CompareTo
+using System; // for Console, Array, CompareTo, Flags
 using System.Collections.Generic; // for List, Dictionary, KeyValuePair
 
 
@@ -165,6 +165,41 @@ string testValue = TestCollection2Names[TestCollection2.Test1];
 
 // get int value from "enum" of TestCollection2.Test1 like a regular enum
 int testValue = (int)TestCollection2.Test1;
+
+
+/* -----------------------------------------
+   Enumerators (Flags)
+----------------------------------------- */
+
+/* create an enum that acts as Flags */
+// flags can be used as multiple attributes, their values need to be power of 2, an int enum can hold max 32 of flags, uint and long can do even more
+
+[Flags]
+public enum Terrain : int
+{
+    Dirt  = (1 << 1), //1 in decimal
+    Grass = (1 << 2), //2 in decimal
+	Ice   = (1 << 3), //4 in decimal
+	Wood  = (1 << 4), //8 in decimal
+}
+
+// assign the flags
+Terrain terrainFeatures = Terrain.Dirt | Terrain.Ice;
+
+// turn on a flag
+terrainFeatures |= Terrain.Grass;
+
+// turn off a flag
+terrainFeatures &= ~Terrain.Grass;
+
+// toggle a flag
+terrainFeatures ^= Terrain.Grass;
+
+// check if the flag is turned on with bitwise comparison (much more performant than HasFlag())
+bool dirtFlagIsPresent = ((terrainFeatures & Terrain.Dirt) == Terrain.Dirt);
+
+// OR check if the flag is turned on (generates garbage, very-very slow)
+bool dirtFlagIsPresent = terrainFeatures.HasFlag(Terrain.Dirt);
 
 
 /* -----------------------------------------
