@@ -6,6 +6,7 @@
 
 /* using */
 using System.Threading.Tasks; // for Task
+using System.Threading; // for CancellationTokenSource, CancellationToken
 
 
 /* -----------------------------------------
@@ -72,6 +73,67 @@ tskCollection.ContinueWith(delegate {
 
 
 /* -----------------------------------------
+   Cancel Task
+----------------------------------------- */
+
+// 1. create a cancellation token and cancellation token source
+CancellationTokenSource tokenSource = new CancellationTokenSource();
+CancellationToken token = tokenSource.Token;
+
+// 2. create an async task that accounts for the cancellation token
+public async Task DoTask(CancellationToken cancellationToken, CancellationTokenSource cancellationTokenSource)
+{
+
+	// point that entire DoTask() task can be cancelled at
+	if (cancellationToken.IsCancellationRequested) {
+
+		System.Console.WriteLine("Task 1 was cancelled...");
+
+		cancellationTokenSource.Dispose(); // cleanup token
+	}
+
+	// some work for Task 1 here...
+
+	System.Console.WriteLine("Task 1 Complete");
+
+	await Task.Delay(1000); // some small delay between the tasks
+
+	// point that entire DoTask() task can be cancelled at
+	if (cancellationToken.IsCancellationRequested) {
+
+		System.Console.WriteLine("Task 2 was cancelled...");
+
+		cancellationTokenSource.Dispose(); // cleanup token
+	}
+
+	// some work for Task 2 here...
+
+	System.Console.WriteLine("Task 2 Complete");
+
+	cancellationTokenSource.Dispose(); // cleanup token
+
+}
+
+
+// 3. execute the async task, providing the cancellation token and source
+Task task = DoTask(token, tokenSource);
+
+// 4. request a cancellation of the task, could be in a Cancel button click event etc. 
+try 
+{
+	// request cancellation of the task
+	tokenSource.Cancel();
+} 
+catch (System.ObjectDisposedException) 
+{
+	// catch any case the token might be disposed, normally should not happen.
+	// You would need to make sure that tasks that use the cancellation token
+	// start and end gracefully
+	System.Console.WriteLine("Warning: CancellationToken is Disposed");
+}
+
+
+/* -----------------------------------------
    Delay Task
 ----------------------------------------- */
 
@@ -80,3 +142,4 @@ await Task.Delay(1000);
 
 // keep task alive
 await Task.Delay(-1);
+
