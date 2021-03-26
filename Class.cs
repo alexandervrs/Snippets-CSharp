@@ -21,7 +21,7 @@ namespace MyNamespace.MyUtils {
 
 	public class MyClass {
 		
-		public bool IsPlaying { get; set; } // returns (gets) or sets the IsPlaying state
+		public bool IsPlaying { get; set; } // A public Property, returns (gets) or sets the IsPlaying state. Remove set; to make it readonly
 
 		public static MyClass Create() {
 			this.IsPlaying = false; // initialize the playing state of the new object to false
@@ -101,6 +101,35 @@ List<int> mylist = new List<int>(){ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 // use the extension methods
 mylist.Shuffle();
 mylist.Print();
+
+
+/* --------------------------------------------
+   Property Get/Set, Accessing Private Fields
+-------------------------------------------- */
+
+/* Step 1: create a class */
+// -------------( MyClass.cs )--------------
+public class MyClass
+{
+    private string name; // private field
+	
+    // public property that gets or sets the private field "name"
+    // Properties will allow you to use different more semantic names for the private fields
+    // or do some extra operations before setting or getting the value
+    public string Name 
+    {
+        get { return name; }
+        set { name = value; } // "value" is what we will assign "name" to be when setting this Property's value
+    }
+
+}
+// -------------( MyClass.cs )--------------
+
+/* Step 2: use the new methods */
+MyClass myClassInstance = new MyClass();
+myClassInstance.Name = "Test"; // set the "name" field using Name property and value "Test"
+Console.WriteLine( myClassInstance.Name ); // get the "name" field using Name property
+//myClassInstance.name will not work because the "name" field is private
 
 
 /* -----------------------------------------
@@ -362,13 +391,13 @@ Debug.Log(classObj.Method2());
 public class MyClass
 {
     // constructor, use the same name as the class, gets called when a Class object has been created
-    public SealedClass()
+    public MyClass()
     {
         UnityEngine.Debug.Log("Constructor()");
     }
 
     // destructor gets called when a Class object has been discarded
-    ~SealedClass()
+    ~MyClass()
     {
         UnityEngine.Debug.Log("~Destructor()");
     }
