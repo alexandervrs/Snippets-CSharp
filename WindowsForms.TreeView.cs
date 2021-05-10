@@ -1,6 +1,6 @@
 
 /**
- * UI.TreeView.cs
+ * WindowsForms.TreeView.cs
  * TreeView related snippets for C#
  */
 

@@ -1,6 +1,6 @@
 
 /**
- * UI.ContextMenu.cs
+ * WindowsForms.ContextMenu.cs
  * ContextMenu related snippets for C#
  */
 

@@ -1,7 +1,7 @@
 
 /**
- * Dialog.cs
- * Dialog related snippets for C#
+ * WindowsForms.Dialogs.cs
+ * Dialogs related snippets for C#
  */
 
 /* using */

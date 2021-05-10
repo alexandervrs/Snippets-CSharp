@@ -1,6 +1,6 @@
 
 /**
- * UI.ComboBox.cs
+ * WindowsForms.ComboBox.cs
  * ComboBox related snippets for C#
  */
 

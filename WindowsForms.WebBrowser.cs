@@ -1,6 +1,6 @@
 
 /**
- * UI.WebBrowser.cs
+ * WindowsForms.WebBrowser.cs
  * WebBrowser related snippets for C#
  */
 

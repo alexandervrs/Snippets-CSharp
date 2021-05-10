@@ -1,6 +1,6 @@
 
 /**
- * UI.PictureBox.cs
+ * WindowsForms.PictureBox.cs
  * PictureBox related snippets for C#
  */
 

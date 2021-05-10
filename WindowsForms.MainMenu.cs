@@ -1,6 +1,6 @@
 
 /**
- * UI.MainMenu.cs
+ * WindowsForms.MainMenu.cs
  * MainMenu related snippets for C#
  */
 

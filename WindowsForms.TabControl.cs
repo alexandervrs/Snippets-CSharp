@@ -1,6 +1,6 @@
 
 /**
- * UI.TabControl.cs
+ * WindowsForms.TabControl.cs
  * TabControl related snippets for C#
  */
 
