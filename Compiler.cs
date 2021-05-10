@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices; // for MethodImpl, MethodImplOptions
 
 
 /* -----------------------------------------
-   Force Inline method (.NET 4+)
+   Force Inline method (.NET 4.5+)
 ----------------------------------------- */
 
 // suggest to the Compiler that it should inline the following method
