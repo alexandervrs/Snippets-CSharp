@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.SplitContainer.cs
+ * Windows.UI.SplitContainer.cs
  * SplitContainer related snippets for C#
  */
 

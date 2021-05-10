@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Label.cs
+ * Windows.UI.Label.cs
  * Label related snippets for C#
  */
 

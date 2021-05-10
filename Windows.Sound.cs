@@ -1,6 +1,6 @@
 
 /**
- * Sound.cs
+ * Windows.Sound.cs
  * SoundPlayer related snippets for C#
  */
 

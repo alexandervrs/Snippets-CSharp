@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Form.cs
+ * Windows.UI.Form.cs
  * Form related snippets for C#
  */
 

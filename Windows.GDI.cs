@@ -1,7 +1,7 @@
 
 /**
- * Graphics.cs
- * Graphics (GDI+) related snippets for C#
+ * Windows.GDI.cs
+ * Windows Graphics Device Interface (GDI+) related snippets for C#
  */
 
 using System;

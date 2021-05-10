@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.RadioButton.cs
+ * Windows.UI.RadioButton.cs
  * RadioButton related snippets for C#
  */
 

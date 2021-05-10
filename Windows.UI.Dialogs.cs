@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Dialogs.cs
+ * Windows.UI.Dialogs.cs
  * Dialogs related snippets for C#
  */
 

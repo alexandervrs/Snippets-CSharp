@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.ProgressBar.cs
+ * Windows.UI.ProgressBar.cs
  * ProgressBar related snippets for C#
  */
 

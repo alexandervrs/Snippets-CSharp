@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Panel.cs
+ * Windows.UI.Panel.cs
  * Panel related snippets for C#
  */
 

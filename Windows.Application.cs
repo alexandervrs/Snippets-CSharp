@@ -1,6 +1,6 @@
 
 /**
- * Application.cs
+ * Windows.Application.cs
  * Application related snippets for C#
  */
 
@@ -14,7 +14,7 @@ using System.Threading; // for Thread
    Main Application
 ----------------------------------------- */
 
-// note: See UI.*.cs for more info on Form and UI Controls
+// note: See Windows.UI.*.cs for more info on Form and UI Controls
 
 // -------------( Program.cs )--------------
 using System;

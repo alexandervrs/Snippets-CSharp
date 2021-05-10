@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.TextBox.cs
+ * Windows.UI.TextBox.cs
  * TextBox related snippets for C#
  */
 

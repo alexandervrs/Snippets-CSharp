@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Button.cs
+ * Windows.UI.Button.cs
  * Button related snippets for C#
  */
 

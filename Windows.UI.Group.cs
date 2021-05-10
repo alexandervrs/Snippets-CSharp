@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.Group.cs
+ * Windows.UI.Group.cs
  * GroupBox related snippets for C#
  */
 

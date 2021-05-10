@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.ListView.cs
+ * Windows.UI.ListView.cs
  * ListView related snippets for C#
  */
 

@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.CheckBox.cs
+ * Windows.UI.CheckBox.cs
  * CheckBox related snippets for C#
  */
 

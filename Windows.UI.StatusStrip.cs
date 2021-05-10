@@ -1,6 +1,6 @@
 
 /**
- * WindowsForms.StatusBar.cs
+ * Windows.UI.StatusStrip.cs
  * StatusStrip related snippets for C#
  */
 
