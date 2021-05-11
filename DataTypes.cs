@@ -5,7 +5,7 @@
  */
 
 /* using */
-using System; // for Console, Array, CompareTo, Flags
+using System; // for Console, Array, CompareTo, Flags, Convert
 using System.Collections.Generic; // for List, Dictionary, KeyValuePair
 
 
@@ -203,6 +203,47 @@ bool dirtFlagIsPresent = terrainFeatures.HasFlag(Terrain.Dirt);
 
 
 /* -----------------------------------------
+   Numbers
+----------------------------------------- */
+// set an unsigned byte (will not go under 0, 0 to 255)
+byte myByte = 1;
+
+// set a signed byte (-128 to 127)
+sbyte mySignedByte = 1;
+
+// set an integer number (-2147483648 to 2147483647)
+int myNumberInt = 3;
+
+// set an unsigned integer number (will not go under 0, 0 to 4294967295)
+uint myNumberUInt = 3;
+
+// set a short number (short integer, -32768 to 32767)
+short myNumberShort = 3;
+
+// set an unsigned short number (will not go under 0, short integer, 0 to 65535)
+ushort myNumberShort = 3;
+
+// set a long number (long integer, -9223372036854775808 to 9223372036854775807)
+long myNumberLong = 3;
+
+// set a floating point number (-340282300000000000000000000000000000000 to 340282300000000000000000000000000000000)
+float myNumberFloat = 3.0f;
+
+// set a double precision number (-1.79769313486232E+308 to 1.79769313486232E+308)
+double myNumberDouble = 3.0d;
+
+// set a decimal number (79228162514264337593543950335 to -79228162514264337593543950335), suitable for monetary values
+decimal myNumberDecimal = 3;
+
+
+// get the platform's minimum possible value for floats (works the same for int, double, long etc.)
+float minvalue = float.MinValue;
+
+// get the platform's max possible value for floats (works the same for int, double, long etc.)
+float maxvalue = float.MaxValue;
+
+
+/* -----------------------------------------
    Strings
 ----------------------------------------- */
 // create a string
@@ -214,11 +255,30 @@ bool isTrue = mytext.Equals("1");
 
 // parse a string into a number so you can use it in calculations
 float myNumberFloat = float.Parse("13.75");
+double myNumberDouble = double.Parse("13.7555");
 int myNumberInt = int.Parse("13");
+// ...
 
 // convert a number into a string, so you can use it in string operations
 float myNumberFloat = 33.45; // float, int etc. ...
 string mytext = myNumberFloat.ToString(); // mytext now has "33.45" as text
+
+
+/* -----------------------------------------
+   Booleans
+----------------------------------------- */
+// create a boolean (true or false)
+bool myboolean = true;
+
+// convert bool to int
+bool myboolean = false;
+int myInt = Convert.ToInt32(myInt);  // will set myInt to 0 (false)
+// OR
+int myInt = myboolean ? 1 : 0; // will set myInt to 0 (false)
+
+// convert int to bool
+int myInt = 1;
+bool myboolean = Convert.ToBoolean(myInt); // will set myBoolean to true (1)
 
 
 /* -----------------------------------------
