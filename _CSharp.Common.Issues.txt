@@ -1,0 +1,16 @@
+
+/* -----------------------------------------
+   Scripting
+----------------------------------------- */
+	
+	
+* No Autocomplete in VSCode
+	
+	a. Make sure the C# Omnisharp extension package name hasn't changed, otherwise manually install a VSIX of older version
+	b. Install required Dot Net SDK for the C# extension to work (e.g. .NET DevPack 4.7.1)
+	
+* MSBuild, VSCode or Omnisharp extension throws error that it cannot find 'Microsoft.NET.Sdk'
+
+	a. Install the correct .NET SDK you're targetting for in your .csproj file
+	b. Make sure you have an environment variable "MSBuildSDKsPath" and it points to the corrent .NET SDK e.g. "C:\Program Files\dotnet\sdk\3.1.402\Sdks"
+
