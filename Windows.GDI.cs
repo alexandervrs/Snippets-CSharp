@@ -6,7 +6,8 @@
 
 using System;
 using System.Windows.Forms; // (Windows-Only) for Form
-using System.Drawing; // (Windows-Only) for Graphics
+using System.Drawing; // (Windows-Only) for Graphics, Color
+using System.Drawing.Imaging; // (Windows-Only) for PixelFormat
 using System.Drawing.Drawing2D; // for (Windows-Only) InterpolationMode
 
 
@@ -23,7 +24,9 @@ form1.Paint += new PaintEventHandler(delegate(object s, PaintEventArgs e)
 {
 
     // draw graphics using a bitmap buffer
-	Bitmap canvasContext = new Bitmap(1280, 720); // width, height
+	Bitmap canvasContext = new Bitmap(1280, 720, PixelFormat.Format32bppArgb); // width, height, pixel format (can be omitted)
+	canvasContext.MakeTransparent(); // for transparent canvas, needs PixelFormat.Format32bppArgb above
+
 	Graphics canvas1 = Graphics.FromImage(canvasContext);
 
     // clear background with a color
@@ -43,6 +46,8 @@ form1.Paint += new PaintEventHandler(delegate(object s, PaintEventArgs e)
 
 	// draw text
 	canvas1.DrawString("My Text 1234567890!?", new Font("Arial", 24, FontStyle.Bold), new SolidBrush(ForeColor), new Point(0, 64));
+	// OR with custom color
+	canvas1.DrawString("My Text 1234567890!?", new Font("Arial", 25), new SolidBrush(Color.WhiteSmoke), 0, 64, new System.Drawing.StringFormat());
 
 	// draw image
 	canvas1.DrawImage(Image.FromFile("test.png"), new Point(1, 100));
