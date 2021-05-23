@@ -22,4 +22,11 @@ label1.ForeColor = Color.FromArgb(139, 158, 193);
 label1.BackColor = Color.Transparent;
 label1.Font      = new Font(button1.Font.FontFamily, button1.Font.Size*1.1f);
 
+/*
+
+    note: putting a Label over a PictureBox might not show the BackColor as Transparent.
+          The workaround is to place the PictureBox as the Label's parent and not the Form
+
+*/
+
 form1.Controls.Add(label1);
