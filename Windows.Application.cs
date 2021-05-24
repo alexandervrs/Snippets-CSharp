@@ -5,9 +5,9 @@
  */
 
 /* using */
-using System; // for Environment
+using System; // for Environment, TimeSpan
 using System.Windows.Forms; // (Windows-Only) for Application
-using System.Threading; // for Thread
+using System.Threading; // for Thread, Mutex
 
 
 /* -----------------------------------------
@@ -118,6 +118,58 @@ throw new Exception();
 ----------------------------------------- */
 // freeze the main application thread for 2 seconds
 Thread.Sleep(2000);
+
+
+/* -----------------------------------------------
+   Only run a single instance of the Application
+----------------------------------------------- */
+
+// -------------( Program.cs )--------------
+using System;
+using System.Windows.Forms;
+
+using MyForms;
+// more modules here ...
+
+namespace MainApplication
+{
+	
+    static class Program
+    {
+		
+        [STAThread]
+        static void Main()
+        {
+			// [!] use a mutex with a unique identifier
+			using (Mutex mutex = new Mutex(false, "MyID-293-390-465-456"))
+			{
+				
+				// [!] check the mutex
+				bool isAnotherInstanceOpen = !mutex.WaitOne(System.TimeSpan.Zero);
+				if (isAnotherInstanceOpen)
+				{
+					// another instance running already, just quit this new instance
+					Console.WriteLine("Only one instance allowed!");
+					return;
+				}
+
+				/// more content here...
+				
+				Console.WriteLine("Version is: "+Application.ProductVersion);
+				
+				// run the Application with a Form1() as its Main Form
+				Application.Run(new Form1());
+				
+				// OR run it as Console Application
+				//Application.Run();
+
+				mutex.ReleaseMutex(); // [!] release mutex in the end
+		
+		}
+	}
+	
+}
+// -------------( Program.cs )--------------
 
 
 /* -----------------------------------------
