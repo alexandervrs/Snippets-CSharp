@@ -5,7 +5,7 @@
  */
 
 /* using */
-using System.Diagnostics; // for Process
+using System.Diagnostics; // for Process, ProcessStartInfo
 
 
 /* -----------------------------------------
@@ -13,13 +13,24 @@ using System.Diagnostics; // for Process
 ----------------------------------------- */
 
 // execute file
-Process.Start("C://text.txt");
+ProcessStartInfo processStartInfo = new ProcessStartInfo();
+processStartInfo.FileName = "C://text.txt";
+processStartInfo.UseShellExecute = true;
+System.Diagnostics.Process.Start(processStartInfo);
 
 // open folder
-Process.Start("C://text/");
+ProcessStartInfo processStartInfo = new ProcessStartInfo();
+processStartInfo.FileName = "C://test/";
+processStartInfo.UseShellExecute = true;
+System.Diagnostics.Process.Start(processStartInfo);
 
 // open URL
-Process.Start("https://google.com");
+ProcessStartInfo processStartInfo = new ProcessStartInfo();
+processStartInfo.FileName = "https://google.com";
+processStartInfo.UseShellExecute = true;
+System.Diagnostics.Process.Start(processStartInfo);
 
 // execute program with arguments
-Process.Start("notepad.exe", "C://text.txt");
+System.Diagnostics.Process process = System.Diagnostics.Process.Start("notepad.exe", "C://text.txt");    
+process.WaitForExit(); // wait for program to exit, optional
+
