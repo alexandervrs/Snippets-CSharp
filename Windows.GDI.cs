@@ -6,7 +6,7 @@
 
 using System;
 using System.Windows.Forms; // (Windows-Only) for Form
-using System.Drawing; // (Windows-Only) for Graphics, Color
+using System.Drawing; // (Windows-Only) for Graphics, Color, Bitmap, Image, SolidBrush, Pen, StringFormat
 using System.Drawing.Imaging; // (Windows-Only) for PixelFormat
 using System.Drawing.Drawing2D; // for (Windows-Only) InterpolationMode
 
@@ -47,7 +47,7 @@ form1.Paint += new PaintEventHandler(delegate(object s, PaintEventArgs e)
 	// draw text
 	canvas1.DrawString("My Text 1234567890!?", new Font("Arial", 24, FontStyle.Bold), new SolidBrush(ForeColor), new Point(0, 64));
 	// OR with custom color
-	canvas1.DrawString("My Text 1234567890!?", new Font("Arial", 25), new SolidBrush(Color.WhiteSmoke), 0, 64, new System.Drawing.StringFormat());
+	canvas1.DrawString("My Text 1234567890!?", new Font("Arial", 25), new SolidBrush(Color.WhiteSmoke), 0, 64, new StringFormat());
 
 	// draw image
 	canvas1.DrawImage(Image.FromFile("test.png"), new Point(1, 100));
